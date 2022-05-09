@@ -26,7 +26,6 @@ function RootImgs(){
       <img src="img/河辺文/アルマ.png" alt="アルマ"/>
       </div>
     </div>
-    <p><a href="page/imger.html">キャラ図鑑へ</a></p>
     </>
   );
 }
@@ -49,12 +48,6 @@ export function RootPage() {
           ログを見る
         </Link>
       </div>
-      <iframe width="650" height="400" src="logs/1-1.html"></iframe>
-      <iframe width="650" height="400" src="logs/2-2.html"></iframe>
-      <iframe width="650" height="400" src="logs/3-3.html"></iframe>
-      <iframe width="650" height="400" src="logs/4-1.html"></iframe>
-      <iframe width="650" height="400" src="logs/5-2.html"></iframe>
-      <iframe width="650" height="400" src="logs/6-4.html"></iframe>
     </>
   );
 }
