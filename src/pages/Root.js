@@ -42,6 +42,12 @@ export function RootPage() {
         <Link className="button is-warning" to="/character">
           キャラ図鑑を見る
         </Link>
+        <Link className="button is-warning" to="/cook">
+          料理を見る
+        </Link>
+        <Link className="button is-warning" to="/logs">
+          ログを見る
+        </Link>
       </div>
       <iframe width="650" height="400" src="logs/1-1.html"></iframe>
       <iframe width="650" height="400" src="logs/2-2.html"></iframe>

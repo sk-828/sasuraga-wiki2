@@ -3,6 +3,8 @@ import { RootPage } from "./pages/Root.js";
 import { RestaurantDetailPage } from "./pages/RestaurantDetail.js";
 import { RestaurantListPage } from "./pages/RestaurantList.js";
 import {CharacterPage} from "./pages/Imger.js"
+import {LogsPage} from "./pages/Logs.js"
+import {CookPage} from "./pages/Cook.js"
 
 function Header() {
   return (
@@ -45,12 +47,21 @@ export function App() {
             <Route path="/character" exact>
               <CharacterPage />
             </Route>
+            <Route path="/logs" exact>
+              <LogsPage/>
+            </Route>
+            <Route path="/cook" exact>
+              <CookPage/>
+            </Route>
+
+            {/*
             <Route path="/restaurants" exact>
               <RestaurantListPage />
             </Route>
             <Route path="/restaurants/:restaurantId">
               <RestaurantDetailPage />
             </Route>
+            */}
           </Switch>
         </div>
       </section>

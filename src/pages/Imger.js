@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import React from 'react'
+import { Breadcrumb, Loading } from "../components";
+
 function getCsv(url) {
   //CSVファイルを文字列で取得。
   var txt = new XMLHttpRequest();
@@ -49,7 +51,7 @@ function CharaCard(props) {
 function Gallery(props){
   var array=[0,1,2,3,4,5]
   if(props.array==null){
-    return<p>nowloding</p>
+    return<Loading />
   }
   return (
     <><h2>プレイヤーキャラクター達</h2>
@@ -72,6 +74,15 @@ export function CharacterPage() {
     setData(temp);
   }, []);
     return (
+      <>
+      <div className="box">
+        <Breadcrumb
+          links={[
+            { href: "/", content: "Top" },
+          ]}
+        />
+      </div>
       <Gallery array={data}></Gallery>
+      </>
     );
   }
