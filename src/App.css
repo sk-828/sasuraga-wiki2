@@ -1,0 +1,9 @@
+div.chara{
+  max-width: 800px; /* 最大幅 */
+  max-height: 800px;
+}
+
+img.imger {
+  max-width: 600px; /* 最大幅 */
+  max-height: 400px; /* 最小幅 */
+}
