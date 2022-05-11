@@ -11,9 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bulma": "^0.9.3",
-    "csv": "^6.0.5",
-    "json-loader": "^0.5.7",
+    "bulma": "^0.9.4",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^5.3.1"

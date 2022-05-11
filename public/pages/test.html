@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <meta charset="utf-8">
-    <title>さすらがWiki</title>
-    <link href="style/style.css" rel="stylesheet" type="text/css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>さすらがWiki</title>
+  <link href="style/style.css" rel="stylesheet" type="text/css">
+</head>
 
 <body>
   <canvas id="board" width="1440" height="810"></canvas>
   <span style="
   font-family: 'hm_tb';
-"></span><br>
+">sasuraga-by.saint</span><br>
 </body>
 
 <script>
@@ -39,78 +39,89 @@
       // Imageのインスタンスを生成し、それぞれの画像を設定
       images[i] = new Image();
       images[i].src = srcs[i];
-      images[i].onload=function(){
+      images[i].onload = function () {
         loadCount++;
-        if(loadCount>=images.length){
+        if (loadCount >= images.length) {
           ctx.drawImage(images[0], 0, 0);
-    for (let i = 0; i < 4; i++) {
-      if (chara[i] === 1) {
-        ctx.drawImage(images[1], 790, 465 + i * 60);
-      } else if (chara[i] === 2) {
-        ctx.drawImage(images[2], 790, 465 + i * 60);
-      } else if (chara[i] === 3) {
-        ctx.drawImage(images[3], 790, 465 + i * 60);
-      } else if (chara[i] === 4) {
-        ctx.drawImage(images[4], 790, 465 + i * 60);
-      } else if (chara[i] === 5) {
-        ctx.drawImage(images[5], 790, 465 + i * 60);
-      } else if (chara[i] === 6) {
-        ctx.drawImage(images[6], 790, 465 + i * 60);
-      }
-    }
-    if (eat[0] === 1) {
-      ctx.drawImage(images[1], 1180, 160);
-    }
-    if (eat[1] === 1) {
-      ctx.drawImage(images[2], 1180, 222);
-    }
-    if (eat[2] === 1) {
-      ctx.drawImage(images[3], 1180, 284);
-    }
-    if (eat[3] === 1) {
-      ctx.drawImage(images[4], 1260, 160);
-    }
-    if (eat[4] === 1) {
-      ctx.drawImage(images[5], 1260, 222);
-    }
-    if (eat[5] === 1) {
-      ctx.drawImage(images[6], 1260, 284);
-    }
-    for (let i = 1; i < 7; i++) {
-      if (maker === i) {
-        ctx.drawImage(images[i], 560, 660);
-      }
-    }
-    var cookWidth = images[7].width;
-    var cookHeight = images[7].height;
-    var widthRate = cookWidth / 500;
-    var heightRate = cookHeight / 350;
-    var imgWidth;
-    var imgHeight;
-    var I = 500 * 350;
-    if (widthRate > heightRate) {
-      imgWidth = cookWidth / widthRate;
-      imgHeight = cookHeight / widthRate;
-    } else {
-      imgWidth = cookWidth / heightRate;
-      imgHeight = cookHeight / heightRate;
-    }
-    ctx.drawImage(images[7], 360 - imgWidth / 2, 430 - imgHeight / 2, imgWidth, imgWidth);
-    ctx.font = "30px hm_tb";
-    for (var lines = text.split("\n"), i = 0, l = lines.length; l > i; i++) {
-      ctx.fillText(lines[i], 880, 510 + i * 60);
-    }
-    ctx.fillText(data, 870, 45);
-    ctx.fillText(scenario, 940, 83);
-    for (var lines = material.split("\n"), i = 0, l = lines.length; l > i; i++) {
-      ctx.fillText(lines[i], 830, 200 + i * 40);
-    }
-    ctx.font = "35px hm_tb";
-    ctx.fillText(name, 110, 265);
-    ctx.fillText(No, 520, 155);
+          for (let i = 0; i < 4; i++) {
+            if (chara[i] === 1) {
+              ctx.drawImage(images[1], 790, 465 + i * 60);
+            } else if (chara[i] === 2) {
+              ctx.drawImage(images[2], 790, 465 + i * 60);
+            } else if (chara[i] === 3) {
+              ctx.drawImage(images[3], 790, 465 + i * 60);
+            } else if (chara[i] === 4) {
+              ctx.drawImage(images[4], 790, 465 + i * 60);
+            } else if (chara[i] === 5) {
+              ctx.drawImage(images[5], 790, 465 + i * 60);
+            } else if (chara[i] === 6) {
+              ctx.drawImage(images[6], 790, 465 + i * 60);
+            }
+          }
+          if (eat[0] === 1) {
+            ctx.drawImage(images[1], 1180, 160);
+          }
+          if (eat[1] === 1) {
+            ctx.drawImage(images[2], 1180, 222);
+          }
+          if (eat[2] === 1) {
+            ctx.drawImage(images[3], 1180, 284);
+          }
+          if (eat[3] === 1) {
+            ctx.drawImage(images[4], 1260, 160);
+          }
+          if (eat[4] === 1) {
+            ctx.drawImage(images[5], 1260, 222);
+          }
+          if (eat[5] === 1) {
+            ctx.drawImage(images[6], 1260, 284);
+          }
+          for (let i = 1; i < 7; i++) {
+            if (maker === i) {
+              ctx.drawImage(images[i], 560, 660);
+            }
+          }
+          var cookWidth = images[7].width;
+          var cookHeight = images[7].height;
+          var widthRate = cookWidth / 480;
+          var heightRate = cookHeight / 310;
+          var imgWidth;
+          var imgHeight;
+          var I = 500 * 350;
+          if (widthRate > heightRate) {
+            if (widthRate > 1) {
+              imgWidth = cookWidth / widthRate;
+              imgHeight = cookHeight / widthRate;
+            } else {
+              imgWidth = cookWidth / heightRate;
+              imgHeight = cookHeight / heightRate;
+            }
+          } else {
+            if (heightRate > 1) {
+              imgWidth = cookWidth / heightRate;
+              imgHeight = cookHeight / heightRate;
+            } else {
+              imgWidth = cookWidth / widthRate;
+              imgHeight = cookHeight / widthRate;
+            }
+          }
+          ctx.drawImage(images[7], 360 - imgWidth / 2, 500 - imgHeight / 2, imgWidth, imgHeight);
+          ctx.font = "30px hm_tb";
+          for (var lines = text.split("\n"), i = 0, l = lines.length; l > i; i++) {
+            ctx.fillText(lines[i], 880, 510 + i * 60);
+          }
+          ctx.fillText(data, 870, 45);
+          ctx.fillText(scenario, 940, 83);
+          for (var lines = material.split("\n"), i = 0, l = lines.length; l > i; i++) {
+            ctx.fillText(lines[i], 830, 200 + i * 40);
+          }
+          ctx.font = "35px hm_tb";
+          ctx.fillText(name, 110, 265);
+          ctx.fillText(No, 520, 155);
         }
       }
     }
   };
 </script>
+
 </html>
