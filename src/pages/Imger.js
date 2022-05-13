@@ -58,7 +58,7 @@ function Gallery(props) {
       for (var i = 0; i < 0; i++) {
         temp.push(i);
       }
-    }else{
+    } else {
       for (var i = 0; i < data.length; i++) {
         temp.push(i);
       }
@@ -90,27 +90,30 @@ function Gallery(props) {
       </div></>
   );
 }
-function CharaPageButton(){
-return(<div className="has-text-right">
-<Link className="button is-warning" to="/character1">
-  聖人
-</Link>
-<Link className="button is-warning" to="/character2">
-  黒上
-</Link>
-<Link className="button is-warning" to="/character3">
-  ユフトゥン
-</Link>
-<Link className="button is-warning" to="/character4">
-  もちたぬき
-</Link>
-<Link className="button is-warning" to="/character5">
-  河辺文
-</Link>
-<Link className="button is-warning" to="/character6">
-  ほらがい
-</Link>
-</div>);
+function CharaPageButton() {
+  return (<div className="has-text-right">
+    <Link className="button is-warning" to="/character">
+      全体
+    </Link>
+    <Link className="button is-warning" to="/character1">
+      ユフトゥン
+    </Link>
+    <Link className="button is-warning" to="/character2">
+      黒上
+    </Link>
+    <Link className="button is-warning" to="/character3">
+      もちたぬき
+    </Link>
+    <Link className="button is-warning" to="/character4">
+      河辺文
+    </Link>
+    <Link className="button is-warning" to="/character5">
+      聖人
+    </Link>
+    <Link className="button is-warning" to="/character6">
+      ほらがい
+    </Link>
+  </div>);
 }
 
 export function CharacterPage() {
@@ -125,7 +128,7 @@ export function CharacterPage() {
         />
       </div>
       <Gallery ID={0}></Gallery>
-      <CharaPageButton/>
+      <CharaPageButton />
     </>
   );
 }
@@ -141,7 +144,7 @@ export function CharacterPage1() {
         />
       </div>
       <Gallery ID={1}></Gallery>
-      <CharaPageButton/>
+      <CharaPageButton />
     </>
   );
 }
@@ -158,7 +161,7 @@ export function CharacterPage2() {
         />
       </div>
       <Gallery ID={2}></Gallery>
-      <CharaPageButton/>
+      <CharaPageButton />
     </>
   );
 }
@@ -174,7 +177,7 @@ export function CharacterPage3() {
         />
       </div>
       <Gallery ID={3}></Gallery>
-      <CharaPageButton/>
+      <CharaPageButton />
     </>
   );
 }
@@ -190,7 +193,7 @@ export function CharacterPage4() {
         />
       </div>
       <Gallery ID={4}></Gallery>
-      <CharaPageButton/>
+      <CharaPageButton />
     </>
   );
 }
@@ -206,7 +209,7 @@ export function CharacterPage5() {
         />
       </div>
       <Gallery ID={5}></Gallery>
-      <CharaPageButton/>
+      <CharaPageButton />
     </>
   );
 }
@@ -222,7 +225,7 @@ export function CharacterPage6() {
         />
       </div>
       <Gallery ID={6}></Gallery>
-      <CharaPageButton/>
+      <CharaPageButton />
     </>
   );
 }
