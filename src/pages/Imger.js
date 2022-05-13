@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
+import { fetchSeet } from "../api";
 
 function getCsv(url) {
   //CSVファイルを文字列で取得。
@@ -21,7 +22,6 @@ function getCsv(url) {
     //","ごとに配列化
     res[i] = arr[i].split(',');
   }
-
   return res;
 }
 
@@ -48,33 +48,75 @@ function CharaCard(props) {
     </div>
   );
 }
-function Gallery(props){
-  var array=[0,1,2,3,4,5]
-  if(props.array==null){
-    return<Loading />
+
+function Gallery(props) {
+  const [data, setData] = useState(null);
+  const [array, setArray] = useState(null);
+  var temp = [];
+  useEffect(() => {
+    if (data == null) {
+      for (var i = 0; i < 0; i++) {
+        temp.push(i);
+      }
+    }else{
+      for (var i = 0; i < data.length; i++) {
+        temp.push(i);
+      }
+    }
+    setArray(temp);
+  }, [data]);
+  useEffect(() => {
+    fetchSeet(props.ID).then((type) => {
+      setData(type);
+      for (var i = 0; i < type.length; i++) {
+        temp.push(i);
+      }
+      setArray(temp);
+    });
+  }, []);
+  if (data == null) {
+    return <Loading />
   }
   return (
     <><h2>プレイヤーキャラクター達</h2>
       <br></br>
       <div className="columns is-vcentered is-multiline">
-      {array.map((i) => {
-        return (
-          <CharaCard data={props.array} ID={i}></CharaCard>
-        );
-      })}
+        {array.map((i) => {
+          return (
+            <CharaCard data={data} ID={i}></CharaCard>
+          );
+        })}
 
       </div></>
   );
 }
+function CharaPageButton(){
+return(<div className="has-text-right">
+<Link className="button is-warning" to="/character1">
+  キャラ図鑑を見る
+</Link>
+<Link className="button is-warning" to="/character2">
+  キャラ図鑑を見る
+</Link>
+<Link className="button is-warning" to="/character3">
+  キャラ図鑑を見る
+</Link>
+<Link className="button is-warning" to="/character4">
+  キャラ図鑑を見る
+</Link>
+<Link className="button is-warning" to="/character5">
+  キャラ図鑑を見る
+</Link>
+<Link className="button is-warning" to="/character6">
+  キャラ図鑑を見る
+</Link>
+</div>);
+}
+
 export function CharacterPage() {
-  const [data, setData] = useState(null);
-  var temp=[];
-  useEffect(() => {
-    temp = getCsv("csv/imager.csv");
-    setData(temp);
-  }, []);
-    return (
-      <>
+
+  return (
+    <>
       <div className="box">
         <Breadcrumb
           links={[
@@ -82,7 +124,105 @@ export function CharacterPage() {
           ]}
         />
       </div>
-      <Gallery array={data}></Gallery>
-      </>
-    );
-  }
+      <Gallery ID={0}></Gallery>
+      <CharaPageButton/>
+    </>
+  );
+}
+export function CharacterPage1() {
+
+  return (
+    <>
+      <div className="box">
+        <Breadcrumb
+          links={[
+            { href: "/", content: "Top" },
+          ]}
+        />
+      </div>
+      <Gallery ID={1}></Gallery>
+      <CharaPageButton/>
+    </>
+  );
+}
+
+export function CharacterPage2() {
+
+  return (
+    <>
+      <div className="box">
+        <Breadcrumb
+          links={[
+            { href: "/", content: "Top" },
+          ]}
+        />
+      </div>
+      <Gallery ID={2}></Gallery>
+      <CharaPageButton/>
+    </>
+  );
+}
+export function CharacterPage3() {
+
+  return (
+    <>
+      <div className="box">
+        <Breadcrumb
+          links={[
+            { href: "/", content: "Top" },
+          ]}
+        />
+      </div>
+      <Gallery ID={3}></Gallery>
+      <CharaPageButton/>
+    </>
+  );
+}
+export function CharacterPage4() {
+
+  return (
+    <>
+      <div className="box">
+        <Breadcrumb
+          links={[
+            { href: "/", content: "Top" },
+          ]}
+        />
+      </div>
+      <Gallery ID={4}></Gallery>
+      <CharaPageButton/>
+    </>
+  );
+}
+export function CharacterPage5() {
+
+  return (
+    <>
+      <div className="box">
+        <Breadcrumb
+          links={[
+            { href: "/", content: "Top" },
+          ]}
+        />
+      </div>
+      <Gallery ID={5}></Gallery>
+      <CharaPageButton/>
+    </>
+  );
+}
+export function CharacterPage6() {
+
+  return (
+    <>
+      <div className="box">
+        <Breadcrumb
+          links={[
+            { href: "/", content: "Top" },
+          ]}
+        />
+      </div>
+      <Gallery ID={6}></Gallery>
+      <CharaPageButton/>
+    </>
+  );
+}

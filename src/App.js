@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { RootPage } from "./pages/Root.js";
 import { RestaurantDetailPage } from "./pages/RestaurantDetail.js";
 import { RestaurantListPage } from "./pages/RestaurantList.js";
-import {CharacterPage} from "./pages/Imger.js"
+import {CharacterPage, CharacterPage1, CharacterPage2, CharacterPage3, CharacterPage4, CharacterPage5, CharacterPage6} from "./pages/Imger.js"
 import {LogsPage} from "./pages/Logs.js"
 import {CookPage} from "./pages/Cook.js"
 
@@ -45,7 +45,25 @@ export function App() {
               <RootPage />
             </Route>
             <Route path="/character" exact>
-              <CharacterPage />
+              <CharacterPage/>
+            </Route>
+            <Route path="/character1" exact>
+              <CharacterPage1/>
+            </Route>
+            <Route path="/character2" exact>
+              <CharacterPage2/>
+            </Route>
+            <Route path="/character3" exact>
+              <CharacterPage3/>
+            </Route>
+            <Route path="/character4" exact>
+              <CharacterPage4/>
+            </Route>
+            <Route path="/character5" exact>
+              <CharacterPage5/>
+            </Route>
+            <Route path="/character6" exact>
+              <CharacterPage6/>
             </Route>
             <Route path="/logs" exact>
               <LogsPage/>

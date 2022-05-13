@@ -299,6 +299,7 @@ function Cook() {
 }
 
 export function CookPage() {
+  
   return (
     <>
       <div className="box">
