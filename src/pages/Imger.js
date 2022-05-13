@@ -93,22 +93,22 @@ function Gallery(props) {
 function CharaPageButton(){
 return(<div className="has-text-right">
 <Link className="button is-warning" to="/character1">
-  キャラ図鑑を見る
+  聖人
 </Link>
 <Link className="button is-warning" to="/character2">
-  キャラ図鑑を見る
+  黒上
 </Link>
 <Link className="button is-warning" to="/character3">
-  キャラ図鑑を見る
+  ユフトゥン
 </Link>
 <Link className="button is-warning" to="/character4">
-  キャラ図鑑を見る
+  もちたぬき
 </Link>
 <Link className="button is-warning" to="/character5">
-  キャラ図鑑を見る
+  河辺文
 </Link>
 <Link className="button is-warning" to="/character6">
-  キャラ図鑑を見る
+  ほらがい
 </Link>
 </div>);
 }
