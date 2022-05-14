@@ -1,3 +1,4 @@
+/*
 function padZero(x, digits) {
   return x.toString().padStart(digits, "0");
 }
@@ -29,3 +30,4 @@ export function Review({ review }) {
     </article>
   );
 }
+*/

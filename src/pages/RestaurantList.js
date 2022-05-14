@@ -1,3 +1,4 @@
+/*
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Breadcrumb, Loading, Pagination, Restaurant } from "../components";
@@ -52,3 +53,4 @@ export function RestaurantListPage() {
     </>
   );
 }
+*/

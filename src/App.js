@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { RootPage } from "./pages/Root.js";
-import { RestaurantDetailPage } from "./pages/RestaurantDetail.js";
-import { RestaurantListPage } from "./pages/RestaurantList.js";
 import {CharacterPage, CharacterPage1, CharacterPage2, CharacterPage3, CharacterPage4, CharacterPage5, CharacterPage6} from "./pages/Imger.js"
 import {LogsPage} from "./pages/Logs.js"
 import {CookPage} from "./pages/Cook.js"

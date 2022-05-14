@@ -1,3 +1,4 @@
+/*
 import { Link } from "react-router-dom";
 import { Review } from "./Review.js";
 
@@ -42,3 +43,4 @@ export function Restaurant({ restaurant }) {
     </article>
   );
 }
+*/
