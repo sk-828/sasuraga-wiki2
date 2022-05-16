@@ -78,7 +78,7 @@ function Gallery(props) {
     return <Loading />
   }
   return (
-    <><h2>プレイヤーキャラクター達</h2>
+    <>
       <br></br>
       <div className="columns is-vcentered is-multiline">
         {array.map((i) => {
@@ -124,9 +124,11 @@ export function CharacterPage() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/character", content: "Chara", active: true },
           ]}
         />
       </div>
+      <h2>プレイヤーキャラクター達</h2>
       <Gallery ID={0}></Gallery>
       <CharaPageButton />
     </>
@@ -140,9 +142,12 @@ export function CharacterPage1() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/character", content: "Chara"},
+            { href: "/character1", content: "yufu", active: true },
           ]}
         />
       </div>
+      <h2>ユフトゥン卓のキャラクター達</h2>
       <Gallery ID={1}></Gallery>
       <CharaPageButton />
     </>
@@ -157,9 +162,12 @@ export function CharacterPage2() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/character", content: "Chara"},
+            { href: "/character2", content: "kurokami", active: true },
           ]}
         />
       </div>
+      <h2>黒上卓のNPC達</h2>
       <Gallery ID={2}></Gallery>
       <CharaPageButton />
     </>
@@ -173,9 +181,12 @@ export function CharacterPage3() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/character", content: "Chara"},
+            { href: "/character3", content: "mochi", active: true },
           ]}
         />
       </div>
+      <h2>もちたぬき卓のキャラクター達</h2>
       <Gallery ID={3}></Gallery>
       <CharaPageButton />
     </>
@@ -189,9 +200,12 @@ export function CharacterPage4() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/character", content: "Chara"},
+            { href: "/character4", content: "kawabe", active: true },
           ]}
         />
       </div>
+      <h2>河辺文卓のキャラクター達</h2>
       <Gallery ID={4}></Gallery>
       <CharaPageButton />
     </>
@@ -205,9 +219,12 @@ export function CharacterPage5() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/character", content: "Chara"},
+            { href: "/character1", content: "Saint", active: true },
           ]}
         />
       </div>
+      <h2>聖人卓のキャラクター達</h2>
       <Gallery ID={5}></Gallery>
       <CharaPageButton />
     </>
@@ -221,9 +238,12 @@ export function CharacterPage6() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/character", content: "Chara"},
+            { href: "/character1", content: "horagai", active: true },
           ]}
         />
       </div>
+      <h2>ほらがい卓のキャラクター達</h2>
       <Gallery ID={6}></Gallery>
       <CharaPageButton />
     </>

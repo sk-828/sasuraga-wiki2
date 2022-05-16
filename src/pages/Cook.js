@@ -306,6 +306,7 @@ export function CookPage() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/cook", content: "Cooks", active: true },
           ]}
         />
       </div>

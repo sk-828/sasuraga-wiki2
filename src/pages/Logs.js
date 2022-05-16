@@ -40,7 +40,7 @@ function LogsList() {
           return (
             <div className="column is-12">
             <p>{data[i][0]}-{data[i][1]},{data[i][2]}</p>
-            <iframe src={"logs/"+data[i][0]+"-"+data[i][1]+".html"} width={"100%"} height={500}></iframe>
+            <iframe src={"logs/"+data[i][0]+"-"+data[i][1]+".html"} width={"100%"} height={600}></iframe>
             </div>
           );
         })}
@@ -56,6 +56,7 @@ export function LogsPage() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
+            { href: "/logs", content: "Logs", active: true },
           ]}
         />
       </div>

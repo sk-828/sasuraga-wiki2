@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getRestaurants } from "../api.js";
-import { Loading, Restaurant } from "../components";
+import { Loading} from "../components";
 
 function RootImgs(){
   return(
