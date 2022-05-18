@@ -3,7 +3,23 @@ import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
 import { fetchSeet } from "../api";
-
+function LogsDisplay(props){
+  const [stat, setStat] = useState(null);
+  useEffect(() => {
+    setStat(0);
+  }, []);
+  function open(){
+    setStat(1);
+  }
+  if(stat===0){
+    return(
+      <button class="button is-large  is-rounded is-primary" onClick={open}>{props.n+"-"+props.m}を表示する</button> 
+    );
+  }
+  return(
+    <iframe src={"logs/"+props.n+"-"+props.m+".html"} width={"100%"} height={800}></iframe>
+  );
+}
 function LogsList() {
   const [data, setData] = useState(null);
   const [array, setArray] = useState(null);
@@ -40,7 +56,7 @@ function LogsList() {
           return (
             <div className="column is-12">
             <p>{data[i][0]}-{data[i][1]},{data[i][2]}</p>
-            <iframe src={"logs/"+data[i][0]+"-"+data[i][1]+".html"} width={"100%"} height={600}></iframe>
+            <LogsDisplay n={data[i][0]} m={data[i][0]}></LogsDisplay>
             </div>
           );
         })}

@@ -128,6 +128,7 @@ export function CharacterPage() {
           ]}
         />
       </div>
+      <CharaPageButton />
       <h2>プレイヤーキャラクター達</h2>
       <Gallery ID={0}></Gallery>
       <CharaPageButton />
@@ -147,6 +148,7 @@ export function CharacterPage1() {
           ]}
         />
       </div>
+      <CharaPageButton />
       <h2>ユフトゥン卓のキャラクター達</h2>
       <Gallery ID={1}></Gallery>
       <CharaPageButton />
@@ -167,6 +169,7 @@ export function CharacterPage2() {
           ]}
         />
       </div>
+      <CharaPageButton />
       <h2>黒上卓のNPC達</h2>
       <Gallery ID={2}></Gallery>
       <CharaPageButton />
@@ -186,6 +189,7 @@ export function CharacterPage3() {
           ]}
         />
       </div>
+      <CharaPageButton />
       <h2>もちたぬき卓のキャラクター達</h2>
       <Gallery ID={3}></Gallery>
       <CharaPageButton />
@@ -205,6 +209,7 @@ export function CharacterPage4() {
           ]}
         />
       </div>
+      <CharaPageButton />
       <h2>河辺文卓のキャラクター達</h2>
       <Gallery ID={4}></Gallery>
       <CharaPageButton />
@@ -224,6 +229,7 @@ export function CharacterPage5() {
           ]}
         />
       </div>
+      <CharaPageButton />
       <h2>聖人卓のキャラクター達</h2>
       <Gallery ID={5}></Gallery>
       <CharaPageButton />
@@ -243,6 +249,7 @@ export function CharacterPage6() {
           ]}
         />
       </div>
+      <CharaPageButton />
       <h2>ほらがい卓のキャラクター達</h2>
       <Gallery ID={6}></Gallery>
       <CharaPageButton />
