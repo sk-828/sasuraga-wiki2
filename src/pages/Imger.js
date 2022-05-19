@@ -27,7 +27,20 @@ function getCsv(url) {
 
 
 function Image(url) {
-  return (<img className="imger" src={"img/" + url.src} />);
+  const [n,setN]=useState(null);
+  useEffect(() => {
+    setN(0);
+  }, []);
+  function click() {
+    if(n===0&&url.src2!==""){
+      setN(1);
+    }else{
+      setN(0);
+    }
+  } if (n === 0) {
+    return (<img className="imger" src={"img/" + url.src} onClick={click} />);
+  }
+  return (<img className="imger" src={"img/" + url.src2} onClick={click} />);
 }
 
 function CharaCard(props) {
@@ -38,11 +51,11 @@ function CharaCard(props) {
           <p className="card-header-title">{props.data[props.ID][0]}</p>
         </header>
         <div className="card-image">
-          <Image src={props.data[props.ID][2]} />
+          <Image src={props.data[props.ID][2]} src2={props.data[props.ID][3]} />
         </div>
         <div className="content">
           <p>プレイヤー:{props.data[props.ID][1]}</p>
-          {props.data[props.ID][3]}
+          {props.data[props.ID][4]}
         </div>
       </div>
     </div>
@@ -143,7 +156,7 @@ export function CharacterPage1() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
-            { href: "/character", content: "Chara"},
+            { href: "/character", content: "Chara" },
             { href: "/character1", content: "yufu", active: true },
           ]}
         />
@@ -164,7 +177,7 @@ export function CharacterPage2() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
-            { href: "/character", content: "Chara"},
+            { href: "/character", content: "Chara" },
             { href: "/character2", content: "kurokami", active: true },
           ]}
         />
@@ -184,7 +197,7 @@ export function CharacterPage3() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
-            { href: "/character", content: "Chara"},
+            { href: "/character", content: "Chara" },
             { href: "/character3", content: "mochi", active: true },
           ]}
         />
@@ -204,7 +217,7 @@ export function CharacterPage4() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
-            { href: "/character", content: "Chara"},
+            { href: "/character", content: "Chara" },
             { href: "/character4", content: "kawabe", active: true },
           ]}
         />
@@ -224,7 +237,7 @@ export function CharacterPage5() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
-            { href: "/character", content: "Chara"},
+            { href: "/character", content: "Chara" },
             { href: "/character1", content: "Saint", active: true },
           ]}
         />
@@ -244,7 +257,7 @@ export function CharacterPage6() {
         <Breadcrumb
           links={[
             { href: "/", content: "Top" },
-            { href: "/character", content: "Chara"},
+            { href: "/character", content: "Chara" },
             { href: "/character1", content: "horagai", active: true },
           ]}
         />
