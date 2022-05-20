@@ -5,6 +5,7 @@ import {LogsPage} from "./pages/Logs.js"
 import {CookPage} from "./pages/Cook.js"
 
 function Header() {
+  //ヘッダー
   return (
     <section className="hero is-warning">
       <div className="hero-body">
@@ -19,11 +20,12 @@ function Header() {
 }
 
 function Footer() {
+  //フッター
   return (
     <footer className="footer ">
       <div className="content">
         <p className="has-text-centered">
-          ©聖人
+          ©聖人 and　さすラガの皆様
         </p>
       </div>
     </footer>
@@ -31,6 +33,7 @@ function Footer() {
 }
 
 export function App() {
+  //ここが一番最初に表示される
   return (
     <Router>
       <Header />
