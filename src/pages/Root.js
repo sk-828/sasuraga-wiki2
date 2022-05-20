@@ -31,7 +31,17 @@ function RootImgs(){
 
 export function RootPage() {
   return (
-    <>
+    <> <div className="has-text-right">
+    <Link className="button is-warning" to="/character">
+      キャラ図鑑を見る
+    </Link>
+    <Link className="button is-warning" to="/cook">
+      料理を見る
+    </Link>
+    <Link className="button is-warning" to="/logs">
+      ログを見る
+    </Link>
+  </div>
       <h2 className="title is-3">プレイヤーキャラクター達</h2>
       <div className="block">
         <RootImgs />

@@ -26,21 +26,27 @@ function getCsv(url) {
 }
 
 
-function Image(url) {
+function Image(urls) {
+  const [url, setUrl] = useState(null);
   const [n,setN]=useState(null);
   useEffect(() => {
+    var array = [];
+    array = urls.src.split(',');
+    setUrl(array);
     setN(0);
   }, []);
   function click() {
-    if(n===0&&url.src2!==""){
-      setN(1);
-    }else{
+    if(n===url.length-1){
       setN(0);
+    }else{
+      setN(n+1);
     }
-  } if (n === 0) {
-    return (<img className="imger" src={"img/" + url.src} onClick={click} />);
   }
-  return (<img className="imger" src={"img/" + url.src2} onClick={click} />);
+  if(url!==null){
+  return (<img className="imger" src={"img/" + url[n]} onClick={click} />);
+  }else{
+    <Loading></Loading>
+  }
 }
 
 function CharaCard(props) {
@@ -51,11 +57,11 @@ function CharaCard(props) {
           <p className="card-header-title">{props.data[props.ID][0]}</p>
         </header>
         <div className="card-image">
-          <Image src={props.data[props.ID][2]} src2={props.data[props.ID][3]} />
+          <Image src={props.data[props.ID][2]}/>
         </div>
         <div className="content">
           <p>プレイヤー:{props.data[props.ID][1]}</p>
-          {props.data[props.ID][4]}
+          {props.data[props.ID][3]}
         </div>
       </div>
     </div>
