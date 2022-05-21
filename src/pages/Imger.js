@@ -28,7 +28,7 @@ function getCsv(url) {
 
 function Image(urls) {
   const [url, setUrl] = useState(null);
-  const [n,setN]=useState(null);
+  const [n, setN] = useState(null);
   useEffect(() => {
     var array = [];
     array = urls.src.split(',');
@@ -36,15 +36,25 @@ function Image(urls) {
     setN(0);
   }, []);
   function click() {
-    if(n===url.length-1){
+    if (n === url.length - 1) {
       setN(0);
-    }else{
-      setN(n+1);
+    } else {
+      setN(n + 1);
     }
   }
-  if(url!==null){
-  return (<img className="imger" src={"img/" + url[n]} onClick={click} />);
-  }else{
+  if (url !== null) {
+    return (
+      <>
+      {
+          (() => {
+            if(url.length>1){
+              return <img className="imger" src={"images/multiFile.png"} width={"30"} height={"30"} />;
+            } 
+          })()
+        }
+        <img className="imger" src={"img/" + url[n]} onClick={click} />
+      </>);
+  } else {
     <Loading></Loading>
   }
 }
@@ -57,7 +67,7 @@ function CharaCard(props) {
           <p className="card-header-title">{props.data[props.ID][0]}</p>
         </header>
         <div className="card-image">
-          <Image src={props.data[props.ID][2]}/>
+          <Image src={props.data[props.ID][2]} />
         </div>
         <div className="content">
           <p>プレイヤー:{props.data[props.ID][1]}</p>
