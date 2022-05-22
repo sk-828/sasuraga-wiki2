@@ -25,7 +25,7 @@ function Footer() {
     <footer className="footer ">
       <div className="content">
         <p className="has-text-centered">
-          ©聖人 and　さすラガの皆様
+          ©2022 聖人 ほらがい　ユフトゥン　河辺文　黒上　もちたぬき
         </p>
       </div>
     </footer>
