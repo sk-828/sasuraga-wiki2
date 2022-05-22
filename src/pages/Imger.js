@@ -84,11 +84,8 @@ function Gallery(props) {
   var temp = [];
   useEffect(() => {
     if (data == null) {
-      for (var i = 0; i < 0; i++) {
-        temp.push(i);
-      }
     } else {
-      for (var i = 0; i < data.length; i++) {
+      for (var i = 1; i < data.length; i++) {
         temp.push(i);
       }
     }
@@ -97,7 +94,7 @@ function Gallery(props) {
   useEffect(() => {
     fetchSeet(props.ID).then((type) => {
       setData(type);
-      for (var i = 0; i < type.length; i++) {
+      for (var i = 1; i < type.length; i++) {
         temp.push(i);
       }
       setArray(temp);
