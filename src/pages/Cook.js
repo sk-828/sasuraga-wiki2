@@ -3,6 +3,7 @@ import ReactDOM from "react-dom"
 import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
+import { fetchSeet } from "../api";
 
 function MakeCookCanvas() {
   const [name, setName] = useState(null);
@@ -159,17 +160,17 @@ function MakeCookCanvas() {
 }
 
 
-const CookCanvas = () => {
-  const chara = new Array(1, 0, 2, 0);//顔アイコンの表示,0=非表示,1=エレイン,2=モルガン,3=パイラ,4=ウルスラ,5=シャーロット,6=アルマ
-  const text = "普通じゃない森にこんなまともな\n生き物がいたなんてね・・・\nうん、うまい。";//短評,\nで改行
-  const maker = 3;//ここに作成者,1=エレイン,2=モルガン,3=パイラ,4=ウルスラ,5=シャーロット,6=アルマ
-  const name = "ウサギ肉のロースト"; //ここに料理の名前
-  const material = "・ウサギ肉";//ここに素材,\nで改行
-  const No = "4";//ここに番号
-  const data = "5/6";//ここに日付
-  const scenario = "6-4河辺卓1回目妖精の森";//ここにシナリオ名前
-  const eat = new Array(1, 1, 1, 1, 1, 1);//食べた人,1が表示、0が非表示,左からエレイン、モルガン、パイラ、ウルスラ、シャーロット、アルマ
-  const cookImg = "rostusagi.png";//画像ファイル名,imgファイルに画像は入れてね。
+const CookCanvas = (props) => {
+  const chara = new Array(props.data[0], props.data[1], props.data[2], props.data[3]);//顔アイコンの表示,0=非表示,1=エレイン,2=モルガン,3=パイラ,4=ウルスラ,5=シャーロット,6=アルマ
+  const text = props.data[4];//短評,\nで改行
+  const maker = props.data[5];//ここに作成者,1=エレイン,2=モルガン,3=パイラ,4=ウルスラ,5=シャーロット,6=アルマ
+  const name = props.data[6]; //ここに料理の名前
+  const material = props.data[7];//ここに素材,\nで改行
+  const No = props.data[8];//ここに番号
+  const data = props.data[9];//ここに日付
+  const scenario = props.data[10];//ここにシナリオ名前
+  const eat = new Array(props.data[11], props.data[12], props.data[13],props.data[14], props.data[15], props.data[16]);//食べた人,1が表示、0が非表示,左からエレイン、モルガン、パイラ、ウルスラ、シャーロット、アルマ
+  const cookImg = props.data[17];//画像ファイル名,imgファイルに画像は入れてね。
 
 
   // contextを状態として持つ
@@ -178,7 +179,7 @@ const CookCanvas = () => {
   const [loaded, setLoaded] = useState(false)
   // コンポーネントの初期化完了後コンポーネント状態にコンテキストを登録
   useEffect(() => {
-    const canvas = document.getElementById("canvas")
+    const canvas = document.getElementById(name)
     const canvasContext = canvas.getContext("2d")
     setContext(canvasContext)
   }, [])
@@ -262,12 +263,12 @@ const CookCanvas = () => {
             }
             ctx.drawImage(images[7], 360 - imgWidth / 2, 500 - imgHeight / 2, imgWidth, imgHeight);
             ctx.font = "30px hm_tb";
-            for (var lines = text.split("\n"), i = 0, l = lines.length; l > i; i++) {
-              ctx.fillText(lines[i], 880, 530 + i * 60);
+            for (var lines = text.split("&"), i = 0, l = lines.length; l > i; i++) {
+              ctx.fillText(lines[i], 880, 510 + i * 60);
             }
             ctx.fillText(data, 870, 45);
             ctx.fillText(scenario, 940, 83);
-            for (var lines = material.split("\n"), i = 0, l = lines.length; l > i; i++) {
+            for (var lines = material.split("&"), i = 0, l = lines.length; l > i; i++) {
               ctx.fillText(lines[i], 830, 200 + i * 40);
             }
             ctx.font = "35px hm_tb";
@@ -284,11 +285,11 @@ const CookCanvas = () => {
       // それに続く処理
     }
   }, [loaded])
-  return <canvas width="1440" height="810" id="canvas"></canvas>
+  return <canvas width="1440" height="810" id={name}></canvas>
 }
 
 
-
+/*
 function Cook() {
   return (
     <>
@@ -297,6 +298,45 @@ function Cook() {
     </>
   );
 }
+*/
+
+function Cook() {
+  const [data, setData] = useState(null);
+  const [array, setArray] = useState(null);
+  var temp = [];
+  useEffect(() => {
+    if (data == null) {
+    } else {
+      for (var i = 1; i < data.length; i++) {
+        temp.push(i);
+      }
+    }
+    setArray(temp);
+  }, [data]);
+  useEffect(() => {
+    fetchSeet(8).then((type) => {
+      setData(type);
+      for (var i = 1; i < type.length; i++) {
+        temp.push(i);
+      }
+      setArray(temp);
+    });
+  }, []);
+  if (data == null) {
+    return <Loading />
+  }
+  return (
+    <>
+        {array.map((i) => {
+          return (
+            <CookCanvas data={data[i]}></CookCanvas>
+          );
+        })}
+
+      </>
+  );
+}
+
 
 export function CookPage() {
   
