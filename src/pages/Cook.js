@@ -127,7 +127,7 @@ function MakeCookCanvas() {
         }
       }
     }
-  }, [ctx, name,text,No,material])
+  }, [ctx, name, text, No, material])
   useEffect(() => {
     if (loaded) {
       // それに続く処理
@@ -159,7 +159,6 @@ function MakeCookCanvas() {
   </>);
 }
 
-
 const CookCanvas = (props) => {
   const chara = new Array(props.data[0], props.data[1], props.data[2], props.data[3]);//顔アイコンの表示,0=非表示,1=エレイン,2=モルガン,3=パイラ,4=ウルスラ,5=シャーロット,6=アルマ
   const text = props.data[4];//短評,\nで改行
@@ -169,7 +168,7 @@ const CookCanvas = (props) => {
   const No = props.data[8];//ここに番号
   const data = props.data[9];//ここに日付
   const scenario = props.data[10];//ここにシナリオ名前
-  const eat = new Array(props.data[11], props.data[12], props.data[13],props.data[14], props.data[15], props.data[16]);//食べた人,1が表示、0が非表示,左からエレイン、モルガン、パイラ、ウルスラ、シャーロット、アルマ
+  const eat = new Array(props.data[11], props.data[12], props.data[13], props.data[14], props.data[15], props.data[16]);//食べた人,1が表示、0が非表示,左からエレイン、モルガン、パイラ、ウルスラ、シャーロット、アルマ
   const cookImg = props.data[17];//画像ファイル名,imgファイルに画像は入れてね。
 
 
@@ -258,7 +257,7 @@ const CookCanvas = (props) => {
                 imgHeight = cookHeight / heightRate;
               } else {
                 imgWidth = cookWidth / widthRate;
-                imgHeight = cookHeight / widthRate;
+                imgHeight = cookHeight / wwidthRate;
               }
             }
             ctx.drawImage(images[7], 360 - imgWidth / 2, 500 - imgHeight / 2, imgWidth, imgHeight);
@@ -285,9 +284,8 @@ const CookCanvas = (props) => {
       // それに続く処理
     }
   }, [loaded])
-  return <canvas width="1440" height="810" id={name}></canvas>
+  return (<><canvas width="1440" height="810" id={name}></canvas></>);
 }
-
 
 /*
 function Cook() {
@@ -324,22 +322,16 @@ function Cook() {
   }, []);
   if (data == null) {
     return <Loading />
-  }
-  return (
-    <>
-        {array.map((i) => {
-          return (
-            <CookCanvas data={data[i]}></CookCanvas>
-          );
-        })}
-
-      </>
+  } return (
+    <>{array.map((i) => {
+      return (
+        <CookCanvas data={data[i]}></CookCanvas>
+      );
+    })}</>
   );
 }
 
-
 export function CookPage() {
-  
   return (
     <>
       <div className="box">

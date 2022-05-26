@@ -7,3 +7,9 @@ img.imger {
   max-width: 600px; /* 最大幅 */
   max-height: 400px; /* 最小幅 */
 }
+@font-face {
+  font-family: 'hm_tb';
+  /* フォント名 */
+  src: url('font/Nちはやフォント.ttf') format('truetype');
+  /* フォントファイル */
+}
