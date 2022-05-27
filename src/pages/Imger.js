@@ -109,7 +109,7 @@ function Gallery(props) {
       <div className="columns is-vcentered is-multiline">
         {array.map((i) => {
           return (
-            <CharaCard data={data} ID={i}></CharaCard>
+            <CharaCard data={data} ID={i} key={i}></CharaCard>
           );
         })}
 

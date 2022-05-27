@@ -287,6 +287,30 @@ const CookCanvas = (props) => {
   return (<><canvas width="1440" height="810" id={name}></canvas></>);
 }
 
+function CookButton(props) {
+  const [stat, setStat] = useState(null);
+  useEffect(() => {
+    setStat(0);
+  }, []);
+  function open() {
+    setStat(1);
+  }
+  function close() {
+    setStat(0);
+  }
+  if (stat === 0) {
+    return (
+      <button className="button is-large  is-rounded is-primary" onClick={open}>{props.data[6]}を表示する</button>
+    );
+  }
+  return (
+    <>
+      <button className="button is-rounded is-link" onClick={close}>{props.data[6]}非表示にする</button>
+      <CookCanvas data={props.data}></CookCanvas>
+    </>
+  );
+}
+
 /*
 function Cook() {
   return (
@@ -323,11 +347,15 @@ function Cook() {
   if (data == null) {
     return <Loading />
   } return (
+    <div className="columns is-vcentered is-multiline">
     <>{array.map((i) => {
       return (
-        <CookCanvas data={data[i]}></CookCanvas>
+        <div className="column is-12" key={i}>
+        <CookButton data={data[i]}></CookButton>
+        </div>
       );
     })}</>
+    </div>
   );
 }
 

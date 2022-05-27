@@ -16,12 +16,12 @@ function LogsDisplay(props){
   }
   if(stat===0){
     return(
-      <button class="button is-large  is-rounded is-primary" onClick={open}>{props.n+"-"+props.m}を表示する</button> 
+      <button className="button is-large  is-rounded is-primary" onClick={open}>{props.n+"-"+props.m}を表示する</button> 
     );
   }
   return(
     <>
-    <button class="button is-rounded is-link" onClick={close}>{props.n+"-"+props.m}非表示にする</button>
+    <button className="button is-rounded is-link" onClick={close}>{props.n+"-"+props.m}非表示にする</button>
     <iframe src={"logs/"+props.n+"-"+props.m+".html"} width={"100%"} height={800}></iframe>
     </>
   );
@@ -57,7 +57,7 @@ function LogsList() {
       <div className="columns is-vcentered is-multiline">
         {array.map((i) => {
           return (
-            <div className="column is-12">
+            <div className="column is-12" key={i}>
             <p>{data[i][0]}-{data[i][1]},{data[i][2]}</p>
             <LogsDisplay n={data[i][0]} m={data[i][1]}></LogsDisplay>
             </div>
