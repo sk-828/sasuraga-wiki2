@@ -17,3 +17,13 @@ body{
 .headerTitlePosition{
     padding: 42px 0px 0px 280px;
 }
+
+.SearchBox{
+    text-align: center;
+    padding:60px;
+}
+
+.searchBoxTitle{
+    text-align: center;
+    padding:10px;
+}
