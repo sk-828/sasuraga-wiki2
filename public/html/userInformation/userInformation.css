@@ -7,6 +7,13 @@ body{
     background:rgb(255, 249, 234);
 }
 
+footer{
+    background-color: white;
+    height: 132px;
+    padding: 0px;
+    margin: 0px;
+}
+
 .headerGB{
     background:rgb(255, 223, 143);
     height: 132px;
