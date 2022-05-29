@@ -1,6 +1,19 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+
+body{
+    background:rgb(255, 249, 234);
+}
+
 .headerGB{
-    background:rgb(255, 219, 128);
-    height: 150px;
+    background:rgb(255, 223, 143);
+    height: 132px;
     padding: 0px;
     margin: 0px;
+}
+
+.headerTitlePosition{
+    padding: 42px 0px 0px 280px;
 }
