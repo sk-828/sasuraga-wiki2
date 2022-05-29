@@ -1,0 +1,60 @@
+<div className="column is-6">
+          <div className="card">
+            <h3 className="chara">エレイン</h3>
+            <div className="imger">
+              <img className="imger" src="img/聖人/エレイン-1.png" />
+              <p>プレイヤー:聖人</p>
+              <p>自称人間のナイトメア、今は無きコーンウォール村出身。防護点ガチガチのタンク。</p>
+            </div>
+          </div>
+        </div>
+        <div className="column is-6">
+          <div className="card">
+            <h3 className="chara">モルガン・エルヴィユ</h3>
+            <div className="imger">
+              <img className="imger" src="img/黒上/モルガン.png" />
+              <p>プレイヤー:黒上</p>
+              <p>正義感の強いナイトメア。復讐のために冒険者になった。</p>
+            </div>
+          </div>
+        </div>
+        <div className="column is-6">
+          <div className="card">
+            <h3 className="chara">パイラ</h3>
+            <div className="imger">
+              <img className="imger" src="img/ほらがい/パイラ.png" />
+              <p>プレイヤー:ほらがい</p>
+              <p>田舎出身の僧侶。実家は豪農で育ちはいいはず。去年学校を卒業した。</p>
+            </div>
+          </div>
+        </div>
+        <div className="column is-6">
+          <div className="card">
+            <h3 className="chara">ウルスラ</h3>
+            <div className="imger">
+              <img className="imger" src="img/ユフトゥン/ウルスラ.png" />
+              <p>プレイヤー:ユフトゥン</p>
+              <p>スラム出身のレプラカーン　神になる為に今日も冒険をする、妖精使いのヒーラー。</p>
+            </div>
+          </div>
+        </div>
+        <div className="column is-6">
+          <div className="card">
+            <h3 className="chara">シャーロット</h3>
+            <div className="imger">
+              <img className="imger" src="img/もちたぬき/シャーロット.png" />
+              <p>プレイヤー:もちたぬき</p>
+              <p>自由な世界を見てみたいと願うタビット　結構ワガママな面もある</p>
+            </div>
+          </div>
+        </div>
+        <div className="column is-6">
+          <div className="card">
+            <h3 className="chara">アルマ</h3>
+            <div className="imger">
+              <img className="imger" src="img/河辺文/アルマ.png" />
+              <p>プレイヤー:河辺文</p>
+              <p>今日も今日とてメイドは主人(椅子に座らせときゃ給料を出してくれるおもしみたいな？)を求めて旅をする</p>
+            </div>
+          </div>
+        </div>
