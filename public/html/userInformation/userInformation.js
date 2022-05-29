@@ -23,6 +23,7 @@ function doGet(e) {
 
 window.onload = searchListInit()
 
+//仮置きでHTMLのほうの選択リストを定数で固定している。
 function searchListInit(){
     const rawDatas = doGet();
 
