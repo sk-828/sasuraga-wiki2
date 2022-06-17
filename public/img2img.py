@@ -22,6 +22,6 @@ def resize(name):
       img_resize.save(os.path.join(dst_dir, basename + ext))
 
 name=["聖人","ほらがい","ユフトゥン","もちたぬき","河辺文","黒上","ヘッドアイコン","もちたぬき/もちたぬき画像まとめ","ユフトゥン/ユフトゥン立ち絵まとめ","聖人/聖人立ち絵まとめ"]
-
-for i in name:
-  resize(i)
+resize("もちたぬき")
+#for i in name:
+#  resize(i)
