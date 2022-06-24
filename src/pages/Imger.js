@@ -24,7 +24,11 @@ function getCsv(url) {
   }
   return res;
 }
-
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
 
 function Image(urls) {
   const [url, setUrl] = useState(null);
@@ -33,7 +37,12 @@ function Image(urls) {
     var array = [];
     array = urls.src.split(',');
     setUrl(array);
-    setN(0);
+    if(urls.ID===0){
+      setN(getRandomInt(0,array.length));
+    }else{
+      setN(0);
+    }
+
   }, []);
   function click() {
     if (n === url.length - 1) {
@@ -67,7 +76,7 @@ function CharaCard(props) {
           <p className="card-header-title">{props.data[props.ID][0]}</p>
         </header>
         <div className="card-image">
-          <Image src={props.data[props.ID][2]} />
+          <Image src={props.data[props.ID][2]} ID={props.user} />
         </div>
         <div className="content">
           <p>プレイヤー:{props.data[props.ID][1]}</p>
@@ -109,7 +118,7 @@ function Gallery(props) {
       <div className="columns is-vcentered is-multiline">
         {array.map((i) => {
           return (
-            <CharaCard data={data} ID={i} key={i}></CharaCard>
+            <CharaCard data={data} ID={i} key={i} user={props.ID}></CharaCard>
           );
         })}
 
