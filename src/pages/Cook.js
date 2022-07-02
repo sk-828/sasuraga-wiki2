@@ -1,9 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useMemo } from "react";
 import ReactDOM from "react-dom"
 import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
 import { fetchSeet } from "../api";
+
+function makeArray(data) {
+  var temp = [];
+  if (data != null) {
+    for (var i = 1; i < data.length; i++) {
+      temp.push(i);
+    }
+  }
+  return temp;
+}
 
 function MakeCookCanvas() {
   const [name, setName] = useState(null);
@@ -288,10 +298,7 @@ const CookCanvas = (props) => {
 }
 
 function CookButton(props) {
-  const [stat, setStat] = useState(null);
-  useEffect(() => {
-    setStat(0);
-  }, []);
+  const [stat, setStat] = useState(0);
   function open() {
     setStat(1);
   }
@@ -306,7 +313,7 @@ function CookButton(props) {
   return (
     <>
       <button className="button is-rounded is-link" onClick={close}>{props.data[6]}非表示にする</button>
-      <CookCanvas data={props.data}></CookCanvas>
+      <CookCanvas data={props.data}/>
     </>
   );
 }
@@ -324,17 +331,7 @@ function Cook() {
 
 function Cook() {
   const [data, setData] = useState(null);
-  const [array, setArray] = useState(null);
-  var temp = [];
-  useEffect(() => {
-    if (data == null) {
-    } else {
-      for (var i = 1; i < data.length; i++) {
-        temp.push(i);
-      }
-    }
-    setArray(temp);
-  }, [data]);
+  const array = useMemo(() => makeArray(data), [data]);
   useEffect(() => {
     fetchSeet(8).then((type) => {
       setData(type);
@@ -351,7 +348,7 @@ function Cook() {
     <>{array.map((i) => {
       return (
         <div className="column is-12" key={i}>
-        <CookButton data={data[i]}></CookButton>
+        <CookButton data={data[i]}/>
         </div>
       );
     })}</>
@@ -370,7 +367,7 @@ export function CookPage() {
           ]}
         />
       </div>
-      <Cook></Cook>
+      <Cook/>
     </>
   );
 }

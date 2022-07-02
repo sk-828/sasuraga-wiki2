@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
@@ -24,6 +24,17 @@ function getCsv(url) {
   }
   return res;
 }
+
+function makeArray(data) {
+  var temp = [];
+  if (data != null) {
+    for (var i = 1; i < data.length; i++) {
+      temp.push(i);
+    }
+  }
+  return temp;
+}
+
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -37,12 +48,11 @@ function Image(urls) {
     var array = [];
     array = urls.src.split(',');
     setUrl(array);
-    if(urls.ID===0){
-      setN(getRandomInt(0,array.length));
-    }else{
+    if (urls.ID === 0) {
+      setN(getRandomInt(0, array.length));
+    } else {
       setN(0);
     }
-
   }, []);
   function click() {
     if (n === url.length - 1) {
@@ -54,17 +64,17 @@ function Image(urls) {
   if (url !== null) {
     return (
       <>
-      {
+        {
           (() => {
-            if(url.length>1){
+            if (url.length > 1) {
               return <img className="imger" src={"images/multiFile.png"} width={"30"} height={"30"} />;
-            } 
+            }
           })()
         }
         <img className="imger" src={"img/" + url[n]} onClick={click} />
       </>);
   } else {
-    <Loading></Loading>
+    <Loading />
   }
 }
 
@@ -89,24 +99,11 @@ function CharaCard(props) {
 
 function Gallery(props) {
   const [data, setData] = useState(null);
-  const [array, setArray] = useState(null);
-  var temp = [];
-  useEffect(() => {
-    if (data == null) {
-    } else {
-      for (var i = 1; i < data.length; i++) {
-        temp.push(i);
-      }
-    }
-    setArray(temp);
-  }, [data]);
+  const array = useMemo(() => makeArray(data), [data]);
+  console.log(data);
   useEffect(() => {
     fetchSeet(props.ID).then((type) => {
       setData(type);
-      for (var i = 1; i < type.length; i++) {
-        temp.push(i);
-      }
-      setArray(temp);
     });
   }, []);
   if (data == null) {
@@ -118,13 +115,14 @@ function Gallery(props) {
       <div className="columns is-vcentered is-multiline">
         {array.map((i) => {
           return (
-            <CharaCard data={data} ID={i} key={i} user={props.ID}></CharaCard>
+            <CharaCard data={data} ID={i} key={i} user={props.ID} />
           );
         })}
 
       </div></>
   );
 }
+
 function CharaPageButton() {
   return (<div className="has-text-right">
     <Link className="button is-warning" to="/character">
@@ -152,7 +150,6 @@ function CharaPageButton() {
 }
 
 export function CharacterPage() {
-
   return (
     <>
       <div className="box">
@@ -165,13 +162,13 @@ export function CharacterPage() {
       </div>
       <CharaPageButton />
       <h2 className="title is-3">プレイヤーキャラクター達</h2>
-      <Gallery ID={0}></Gallery>
+      <Gallery ID={0} />
       <CharaPageButton />
     </>
   );
 }
-export function CharacterPage1() {
 
+export function CharacterPage1() {
   return (
     <>
       <div className="box">
@@ -185,14 +182,13 @@ export function CharacterPage1() {
       </div>
       <CharaPageButton />
       <h2 className="title is-3">ユフトゥン卓のキャラクター達</h2>
-      <Gallery ID={1}></Gallery>
+      <Gallery ID={1} />
       <CharaPageButton />
     </>
   );
 }
 
 export function CharacterPage2() {
-
   return (
     <>
       <div className="box">
@@ -206,13 +202,13 @@ export function CharacterPage2() {
       </div>
       <CharaPageButton />
       <h2 className="title is-3">黒上卓のNPC達</h2>
-      <Gallery ID={2}></Gallery>
+      <Gallery ID={2} />
       <CharaPageButton />
     </>
   );
 }
-export function CharacterPage3() {
 
+export function CharacterPage3() {
   return (
     <>
       <div className="box">
@@ -226,13 +222,13 @@ export function CharacterPage3() {
       </div>
       <CharaPageButton />
       <h2 className="title is-3">もちたぬき卓のキャラクター達</h2>
-      <Gallery ID={3}></Gallery>
+      <Gallery ID={3} />
       <CharaPageButton />
     </>
   );
 }
-export function CharacterPage4() {
 
+export function CharacterPage4() {
   return (
     <>
       <div className="box">
@@ -246,13 +242,13 @@ export function CharacterPage4() {
       </div>
       <CharaPageButton />
       <h2 className="title is-3">河辺文卓のキャラクター達</h2>
-      <Gallery ID={4}></Gallery>
+      <Gallery ID={4} />
       <CharaPageButton />
     </>
   );
 }
-export function CharacterPage5() {
 
+export function CharacterPage5() {
   return (
     <>
       <div className="box">
@@ -260,19 +256,19 @@ export function CharacterPage5() {
           links={[
             { href: "/", content: "Top" },
             { href: "/character", content: "Chara" },
-            { href: "/character1", content: "Saint", active: true },
+            { href: "/character5", content: "Saint", active: true },
           ]}
         />
       </div>
       <CharaPageButton />
       <h2 className="title is-3">聖人卓のキャラクター達</h2>
-      <Gallery ID={5}></Gallery>
+      <Gallery ID={5} />
       <CharaPageButton />
     </>
   );
 }
-export function CharacterPage6() {
 
+export function CharacterPage6() {
   return (
     <>
       <div className="box">
@@ -280,13 +276,13 @@ export function CharacterPage6() {
           links={[
             { href: "/", content: "Top" },
             { href: "/character", content: "Chara" },
-            { href: "/character1", content: "horagai", active: true },
+            { href: "/character6", content: "horagai", active: true },
           ]}
         />
       </div>
       <CharaPageButton />
       <h2 className="title is-3">ほらがい卓のキャラクター達</h2>
-      <Gallery ID={6}></Gallery>
+      <Gallery ID={6} />
       <CharaPageButton />
     </>
   );

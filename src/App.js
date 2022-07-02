@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { RootPage } from "./pages/Root.js";
-import {CharacterPage, CharacterPage1, CharacterPage2, CharacterPage3, CharacterPage4, CharacterPage5, CharacterPage6} from "./pages/Imger.js"
-import {LogsPage} from "./pages/Logs.js"
-import {CookPage} from "./pages/Cook.js"
+import { CharacterPage, CharacterPage1, CharacterPage2, CharacterPage3, CharacterPage4, CharacterPage5, CharacterPage6 } from "./pages/Imger.js"
+import { CookPage } from "./pages/Cook.js"
+import { TarotPage } from "./pages/Tarot.js"
+import {MaterialPage, MaterialPage1,MaterialPage2,MaterialPage3,MaterialPage4,MaterialPage5,MaterialPage6} from "./pages/Material.js"
+import { LogsPage } from "./pages/Logs.js"
 
 function Header() {
   //ヘッダー
@@ -46,31 +48,55 @@ export function App() {
               <RootPage />
             </Route>
             <Route path="/character" exact>
-              <CharacterPage/>
+              <CharacterPage />
             </Route>
             <Route path="/character1" exact>
-              <CharacterPage1/>
+              <CharacterPage1 />
             </Route>
             <Route path="/character2" exact>
-              <CharacterPage2/>
+              <CharacterPage2 />
             </Route>
             <Route path="/character3" exact>
-              <CharacterPage3/>
+              <CharacterPage3 />
             </Route>
             <Route path="/character4" exact>
-              <CharacterPage4/>
+              <CharacterPage4 />
             </Route>
             <Route path="/character5" exact>
-              <CharacterPage5/>
+              <CharacterPage5 />
             </Route>
             <Route path="/character6" exact>
-              <CharacterPage6/>
+              <CharacterPage6 />
+            </Route>
+            <Route path="/tarot" exact>
+              <TarotPage />
             </Route>
             <Route path="/logs" exact>
-              <LogsPage/>
+              <LogsPage />
             </Route>
             <Route path="/cook" exact>
-              <CookPage/>
+              <CookPage />
+            </Route>
+            <Route path="/material" exact>
+              <MaterialPage />
+            </Route>
+            <Route path="/material1" exact>
+              <MaterialPage1 />
+            </Route>
+            <Route path="/material2" exact>
+              <MaterialPage2 />
+            </Route>
+            <Route path="/material3" exact>
+              <MaterialPage3 />
+            </Route>
+            <Route path="/material4" exact>
+              <MaterialPage4 />
+            </Route>
+            <Route path="/material5" exact>
+              <MaterialPage5 />
+            </Route>
+            <Route path="/material6" exact>
+              <MaterialPage6 />
             </Route>
 
             {/*
