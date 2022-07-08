@@ -51,11 +51,6 @@ function LogsList() {
   useEffect(() => {
     fetchSeet(7).then((type) => {
       setData(type);
-      var temp = [];
-      for (var i = 1; i < type.length; i++) {
-        temp.push(i);
-      }
-      setArray(temp);
     });
   }, []);
   function handleSubmit(event) {
