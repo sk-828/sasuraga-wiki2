@@ -79,22 +79,48 @@ function Image(urls) {
 }
 
 function CharaCard(props) {
-  return (
-    <div className="column is-6">
-      <div className="card">
-        <header className="card-header">
-          <p className="card-header-title">{props.data[props.ID][0]}</p>
-        </header>
-        <div className="card-image">
-          <Image src={props.data[props.ID][2]} ID={props.user} />
-        </div>
-        <div className="content">
-          <p>プレイヤー:{props.data[props.ID][1]}</p>
-          {props.data[props.ID][3]}
+  const [stat, setStat] = useState(0);
+  function open() {
+    setStat(1);
+  }
+  function close() {
+    setStat(0);
+  }
+  if (stat == 1) {
+    return (
+      <div className="column is-6">
+        <div className="card">
+          <header className="card-header">
+            <p className="card-header-title" onClick={close}>{props.data[props.ID][0]}</p>
+          </header>
+          <div className="card-image">
+            <Image src={props.data[props.ID][2]} ID={props.user} />
+          </div>
+          <div className="content">
+            <p>プレイヤー:{props.data[props.ID][1]}</p>
+            {props.data[props.ID][3]}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+  else {
+    return (
+      <div className="column is-6">
+        <div className="card">
+          <header className="card-header">
+            <p className="card-header-title" onClick={open}>{props.data[props.ID][0]}</p>
+          </header>
+          <div className="card-image">
+            <Image src={props.data[props.ID][2]} ID={props.user} />
+          </div>
+          <div className="content">
+            <p>プレイヤー:{props.data[props.ID][1]}</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 function Gallery(props) {

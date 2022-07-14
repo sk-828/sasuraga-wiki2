@@ -1,6 +1,4 @@
 import { useEffect, useState,useMemo } from "react";
-import ReactDOM from "react-dom"
-import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
 import { fetchSeet } from "../api";

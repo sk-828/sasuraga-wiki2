@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
-import { fetchSeet } from "../api";
 
 const shuffle = ([...array]) => {
   for (let i = array.length - 1; i >= 0; i--) {
