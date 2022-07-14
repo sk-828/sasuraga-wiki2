@@ -1,8 +1,25 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState,useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
 import { fetchSeet } from "../api";
+
+const useWindowSize = (): number[] => {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    const updateSize = (): void => {
+      setSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+};
+
+
 
 function getCsv(url) {
   //CSVファイルを文字列で取得。
@@ -80,6 +97,11 @@ function Image(urls) {
 
 function CharaCard(props) {
   const [stat, setStat] = useState(0);
+  useEffect(() => {
+    if(props.width>1000){
+      setStat(1);
+    }
+  });
   function open() {
     setStat(1);
   }
@@ -126,6 +148,7 @@ function CharaCard(props) {
 function Gallery(props) {
   const [data, setData] = useState(null);
   const array = useMemo(() => makeArray(data), [data]);
+  const [width, height] = useWindowSize();
   console.log(data);
   useEffect(() => {
     fetchSeet(props.ID).then((type) => {
@@ -141,7 +164,7 @@ function Gallery(props) {
       <div className="columns is-vcentered is-multiline">
         {array.map((i) => {
           return (
-            <CharaCard data={data} ID={i} key={i} user={props.ID} />
+            <CharaCard data={data} ID={i} key={i} user={props.ID} width={width} />
           );
         })}
 
