@@ -4,8 +4,12 @@ div.chara{
 }
 
 img.imger {
-  max-width: 400px; /* 最大幅 */
-  max-height: 500px; /* 最小幅 */
+  max-width:500px; /* 最大幅 */
+  max-height: 450px; /* 最小幅 */
+}
+img.imgers {
+  max-width:300px; /* 最大幅 */
+  max-height: 450px; /* 最小幅 */
 }
 @font-face {
   font-family: 'hm_tb';

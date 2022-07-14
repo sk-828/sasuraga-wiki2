@@ -61,6 +61,7 @@ function getRandomInt(min, max) {
 function Image(urls) {
   const [url, setUrl] = useState(null);
   const [n, setN] = useState(null);
+  
   useEffect(() => {
     var array = [];
     array = urls.src.split(',');
@@ -79,6 +80,19 @@ function Image(urls) {
     }
   }
   if (url !== null) {
+    if(urls.bool==1){
+      return (
+        <>
+          {
+            (() => {
+              if (url.length > 1) {
+                return <img className="imger" src={"images/multiFile.png"} width={"30"} height={"30"} />;
+              }
+            })()
+          }
+          <img className="imgers" src={"img/" + url[n]} onClick={click} />
+        </>);
+    }else{
     return (
       <>
         {
@@ -90,16 +104,19 @@ function Image(urls) {
         }
         <img className="imger" src={"img/" + url[n]} onClick={click} />
       </>);
-  } else {
+  }} 
+  else {
     <Loading />
   }
 }
 
 function CharaCard(props) {
   const [stat, setStat] = useState(0);
+  const [sumaho, setSumaho] = useState(1);
   useEffect(() => {
     if(props.width>1000){
       setStat(1);
+      setSumaho(0);
     }
   });
   function open() {
@@ -116,7 +133,7 @@ function CharaCard(props) {
             <p className="card-header-title" onClick={close}>{props.data[props.ID][0]}</p>
           </header>
           <div className="card-image">
-            <Image src={props.data[props.ID][2]} ID={props.user} />
+            <Image src={props.data[props.ID][2]} ID={props.user} bool={sumaho}/>
           </div>
           <div className="content">
             <p>プレイヤー:{props.data[props.ID][1]}</p>
