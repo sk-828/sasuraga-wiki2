@@ -1,7 +1,120 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import React from 'react'
-import { Breadcrumb } from "../components";
+import { Breadcrumb,Loading } from "../components";
+import { fetchSeet } from "../api";
+
+function MaterialCard(props) {
+  const [stat, setStat] = useState(1);
+  function open() {
+    setStat(1);
+  }
+  function close() {
+    setStat(0);
+  }
+  if (stat == 1) {
+    return (
+      <div className="column is-6">
+        <div className="card">
+          <header className="card-header">
+            <p className="card-header-title" onClick={close}>{props.data[props.ID][0]}</p>
+          </header>
+          <div className="content">
+            {props.data[props.ID][2]}
+          </div>
+        </div>
+      </div>
+    );
+  }
+  else {
+    return (
+      <div className="column is-6">
+        <div className="card">
+          <header className="card-header">
+            <p className="card-header-title" onClick={open}>{props.data[props.ID][0]}</p>
+          </header>
+          <div className="content">
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+function Gallery(props) {
+  const [data, setData] = useState(null);
+  const [array, setArray] = useState(null);
+  useEffect(() => {
+    var temp = [];
+    if (data == null) {
+    } else {
+      for (var i = 1; i < data.length; i++) {
+        temp.push(i);
+      }
+    }
+    setArray(temp);
+  }, [data]);
+  useEffect(() => {
+    fetchSeet(10).then((type) => {
+      setData(type);
+    });
+  }, []);
+  function handleSubmit(event) {
+    event.preventDefault();
+    const { breed } = event.target.elements;
+    console.log(breed.value);
+    var temp = [];
+    for (var i = 1; i < data.length; i++) {
+      if (breed.value === "0") {
+        temp.push(i);
+      } else if(breed.value === data[i][1]) {
+        temp.push(i);
+      }
+    }
+    setArray(temp);
+    console.log(array);
+  }
+  if (data == null) {
+    return <Loading />
+  }
+  return (
+    <>
+      <br></br>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <div className="field has-addons">
+            <div className="control is-expanded">
+              <div className="select is-fullwidth">
+                <select name="breed" defaultValue="0">
+                  <option value="0">全体</option>
+                  <option value="ユフトゥン">ユフトゥン</option>
+                  <option value="黒上">黒上</option>
+                  <option value="もちたぬき">もちたぬき</option>
+                  <option value="河辺文">河辺文</option>
+                  <option value="聖人">聖人</option>
+                  <option value="ほらがい">ほらがい</option>
+                </select>
+              </div>
+            </div>
+            <div className="control">
+              <button type="submit" className="button is-dark">
+                Set
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div className="columns is-vcentered is-multiline">
+        {array.map((i) => {
+          return (
+            <MaterialCard data={data} ID={i} key={i} user={props.ID} />
+          );
+        })}
+
+      </div></>
+  );
+}
+
 
 function MaterialPageButton() {
   return (<div className="has-text-right">
@@ -42,6 +155,7 @@ export function MaterialPage() {
       </div>
       <MaterialPageButton />
       <h2 className="title is-3">設定資料集</h2>
+      <Gallery />
       <MaterialPageButton />
     </>
   );
