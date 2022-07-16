@@ -80,8 +80,7 @@ function Image(urls) {
     }
   }
   if (url !== null) {
-    console.log(urls.bool);
-    if (urls.width > 1000) {
+    if (urls.width < 1000) {
       return (
         <>
           {
@@ -151,7 +150,7 @@ function CharaCard(props) {
             <p className="card-header-title" onClick={open}>{props.data[props.ID][0]}</p>
           </header>
           <div className="card-image">
-            <Image src={props.data[props.ID][2]} ID={props.user} />
+            <Image src={props.data[props.ID][2]} ID={props.user} width={props.width} />
           </div>
           <div className="content">
             <p>プレイヤー:{props.data[props.ID][1]}</p>

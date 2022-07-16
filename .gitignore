@@ -1,5 +1,7 @@
-node_modules
-build
-public\tempCodeRunnerFile.py
-public\htmlsc.py
-public\img2img.py
+node_modules/
+build/
+public/htmlsc.py
+public/img2img.py
+public/tempCodeRunnerFile.py
+public/test.py
+public/logs/*.txt
