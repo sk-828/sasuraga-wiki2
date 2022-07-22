@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import {TestDamage} from "./Buki";
 
 function RootImgs() {
   return (
@@ -55,6 +56,7 @@ export function RootPage() {
       <div className="block">
         <RootImgs />
       </div>
+      <TestDamage />
       <RootButton />
     </>
   );
