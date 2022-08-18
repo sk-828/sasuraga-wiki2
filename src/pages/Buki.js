@@ -117,7 +117,7 @@ function iryokuDamage(iryok, c) {
   if (dice >= c) {
     damage += iryokuDamage(iryok, c);
   }
-  damage += iryokTable[iryok][dice - 1];
+  damage += iryokTable[iryok][dice - 2];
   return damage;
 }
 
