@@ -3,8 +3,9 @@ import { RootPage } from "./pages/Root.js";
 import { CharacterPage, CharacterPage1, CharacterPage2, CharacterPage3, CharacterPage4, CharacterPage5, CharacterPage6 } from "./pages/Imger.js"
 import { CookPage } from "./pages/Cook.js"
 import { TarotPage } from "./pages/Tarot.js"
-import {MaterialPage, MaterialPage1,MaterialPage2,MaterialPage3,MaterialPage4,MaterialPage5,MaterialPage6} from "./pages/Material.js"
+import { MaterialPage, MaterialPage1, MaterialPage2, MaterialPage3, MaterialPage4, MaterialPage5, MaterialPage6 } from "./pages/Material.js"
 import { LogsPage } from "./pages/Logs.js"
+import { RootButton } from "./components";
 
 function Header() {
   //ヘッダー
@@ -43,6 +44,7 @@ export function App() {
         <div className="container">
           <div className="block has-text-right">
           </div>
+          <RootButton />
           <Switch>
             <Route path="/" exact>
               <RootPage />
@@ -108,6 +110,7 @@ export function App() {
             </Route>
             */}
           </Switch>
+          <RootButton />
         </div>
       </section>
       <Footer />

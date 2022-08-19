@@ -1,4 +1,4 @@
-import { useEffect, useState,useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import React from 'react'
 import { Breadcrumb, Loading } from "../components";
 import { fetchSeet } from "../api";
@@ -311,7 +311,7 @@ function CookButton(props) {
   return (
     <>
       <button className="button is-rounded is-link" onClick={close}>{props.data[6]}非表示にする</button>
-      <CookCanvas data={props.data}/>
+      <CookCanvas data={props.data} />
     </>
   );
 }
@@ -343,13 +343,13 @@ function Cook() {
     return <Loading />
   } return (
     <div className="columns is-vcentered is-multiline">
-    <>{array.map((i) => {
-      return (
-        <div className="column is-12" key={i}>
-        <CookButton data={data[i]}/>
-        </div>
-      );
-    })}</>
+      <>{array.map((i) => {
+        return (
+          <div className="column is-12" key={i}>
+            <CookButton data={data[i]} />
+          </div>
+        );
+      })}</>
     </div>
   );
 }
@@ -365,7 +365,7 @@ export function CookPage() {
           ]}
         />
       </div>
-      <Cook/>
+      <Cook />
     </>
   );
 }

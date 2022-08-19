@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import React from 'react'
-import { Breadcrumb,Loading } from "../components";
+import { Breadcrumb, Loading } from "../components";
 import { fetchSeet } from "../api";
 
 function MaterialCard(props) {
@@ -67,7 +67,7 @@ function Gallery(props) {
     for (var i = 1; i < data.length; i++) {
       if (breed.value === "0") {
         temp.push(i);
-      } else if(breed.value === data[i][1]) {
+      } else if (breed.value === data[i][1]) {
         temp.push(i);
       }
     }
