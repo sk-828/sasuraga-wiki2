@@ -20,7 +20,11 @@ function MaterialCard(props) {
             <p className="card-header-title" onClick={close}>{props.data[props.ID][0]}</p>
           </header>
           <div className="content">
-            {props.data[props.ID][2]}
+            {props.data[props.ID][2].split(/\r\n|\n/).map((i,e) => {
+          return (
+            <>{i}<br/></>
+          );
+        })}
           </div>
         </div>
       </div>

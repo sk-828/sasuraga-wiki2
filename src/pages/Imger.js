@@ -136,7 +136,11 @@ function CharaCard(props) {
           </div>
           <div className="content">
             <p>プレイヤー:{props.data[props.ID][1]}</p>
-            {props.data[props.ID][3]}
+            {props.data[props.ID][3].split(/\r\n|\n/).map((i,e) => {
+          return (
+            <>{i}<br/></>
+          );
+        })}
           </div>
         </div>
       </div>
