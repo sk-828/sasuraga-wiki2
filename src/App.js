@@ -44,6 +44,11 @@ export function App() {
         <div className="container">
           <div className="block has-text-right">
           </div>
+          <div className="has-text-right">
+            <div className="button is-warning" to="/material">
+              データ更新
+            </div>
+          </div>
           <RootButton />
           <Switch>
             <Route path="/" exact>
