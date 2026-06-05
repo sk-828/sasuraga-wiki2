@@ -1,4 +1,15 @@
 node_modules/
 build/
+dist/
+
+# 環境変数（.env.example はコミット可）
+.env
+.env.local
+.env.*.local
+
+# OS / エディタ
+.DS_Store
+*.log
+
 public/code/
 public/logs/text/

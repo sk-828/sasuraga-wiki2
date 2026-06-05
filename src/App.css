@@ -1,19 +1,40 @@
-div.chara{
-  max-width: 500px; /* 最大幅 */
-  max-height: 600px;
+img.imger {
+  max-width: 500px;
+  max-height: 450px;
 }
 
-img.imger {
-  max-width:500px; /* 最大幅 */
-  max-height: 450px; /* 最小幅 */
-}
 img.imgers {
-  max-width:300px; /* 最大幅 */
-  max-height: 450px; /* 最小幅 */
+  max-width: 300px;
+  max-height: 450px;
 }
+
 @font-face {
-  font-family: 'hm_tb';
-  /* フォント名 */
-  src: url('font/Nちはやフォント.ttf') format('truetype');
-  /* フォントファイル */
+  font-family: "hm_tb";
+  src: url("font/Nちはやフォント.ttf") format("truetype");
+}
+
+.cook-canvas-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.cook-canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.is-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
